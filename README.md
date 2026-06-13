@@ -2,6 +2,5 @@
 
 A Glass Glassware to launch apps
 
-**AI slopped**
-
-**tested on XE 24**
+- AI slopped
+- tested on XE 24
