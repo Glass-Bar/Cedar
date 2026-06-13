@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">glAss launcher</string>
+
+    <!-- Voice trigger phrase for Glass voice menu -->
+    <string name="voice_trigger_launch_app">launch app</string>
+    
+    <!-- Error message if no apps found -->
+    <string name="no_apps_found">No launchable apps found</string>
+</resources>

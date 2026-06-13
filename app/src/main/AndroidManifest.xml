@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="com.google.android.glass.permission.DEVELOPMENT" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name">
+
+        <!-- Main activity: voice trigger entry point -->
+        <activity
+            android:name="com.ciube.glass.launcher.MainActivity"
+            android:label="@string/app_name"
+            android:icon="@android:drawable/ic_menu_view"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/voice_trigger" />
+        </activity>
+
+        <!-- Immersion activity: scrollable list of apps -->
+        <activity
+            android:name="com.ciube.glass.launcher.AppListActivity"
+            android:label="@string/app_name"
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault" />
+
+    </application>
+</manifest>

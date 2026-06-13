@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Single card shown inside the CardScrollView immersion.
+    Displays the app icon, app name and package name.
+    640×360 is the Glass screen resolution.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="30dp">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="app icon" />
+
+    <TextView
+        android:id="@+id/tv_app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_icon"
+        android:layout_marginLeft="20dp"
+        android:layout_centerVertical="true"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:fontFamily="sans-serif-light"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/tv_package"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_icon"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/tv_app_name"
+        android:layout_marginTop="4dp"
+        android:textColor="#888888"
+        android:textSize="16sp"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <!-- Bottom-right hint -->
+    <TextView
+        android:id="@+id/tv_tap_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="tap to launch"
+        android:textColor="#555555"
+        android:textSize="14sp" />
+
+</RelativeLayout>
