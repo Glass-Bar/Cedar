@@ -3,36 +3,46 @@ plugins {
 }
 
 android {
-    // AGP 8.x requires namespace (replaces package in manifest)
     namespace 'com.ciube.glass.launcher'
-
-    // AGP 8.x requires compileSdk >= 21; 21 is the minimum we can use
     compileSdk 21
 
     defaultConfig {
         applicationId 'com.ciube.glass.launcher'
-        minSdk 19           // Glass XE24 = Android 4.4.2 (API 19)
+        minSdk 19
         targetSdk 19
         versionCode 1
         versionName '1.0'
     }
 
+    def props = new Properties()
+    file('../local.properties').withInputStream { props.load(it) }
+
+    signingConfigs {
+        release {
+            storeFile     file(props['KEYSTORE_PATH'])
+            storePassword props['KEYSTORE_PASS']
+            keyAlias      props['KEY_ALIAS']
+            keyPassword   props['KEY_PASS']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release        // ← wire it in
         }
     }
 
     compileOptions {
-        // Java 8 source/target is the minimum AGP 8.x accepts
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lint {
+        disable 'ExpiredTargetSdkVersion'
     }
 }
 
 dependencies {
-    // gdk.jar lives in app/libs/
-    // compileOnly = used at compile time only, NOT bundled in the APK
-    // (the GDK already lives on the Glass device)
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
 }
