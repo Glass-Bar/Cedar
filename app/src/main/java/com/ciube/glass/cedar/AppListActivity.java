@@ -1,4 +1,4 @@
-package com.ciube.glass.launcher;
+package com.ciube.glass.cedar;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -142,7 +142,7 @@ public class AppListActivity extends Activity {
             });
 
             // Add "Stop Launcher" as the last item (use empty package name to identify it)
-            result.add(new AppInfo("Stop Launcher", "", null));
+            result.add(new AppInfo("Stop Cedar", "", null));
 
             return result;
         }

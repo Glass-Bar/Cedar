@@ -1,4 +1,4 @@
-package com.ciube.glass.launcher;
+package com.ciube.glass.cedar;
 
 import android.graphics.drawable.Drawable;
 

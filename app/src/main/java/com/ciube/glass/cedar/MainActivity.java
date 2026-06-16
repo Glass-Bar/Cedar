@@ -1,4 +1,4 @@
-package com.ciube.glass.launcher;
+package com.ciube.glass.cedar;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import android.util.Log;
  */
 public class MainActivity extends Activity {
 
-    private static final String TAG = "glAss launcher";
+    private static final String TAG = "Cedar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

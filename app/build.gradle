@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.ciube.glass.launcher'
+    namespace 'com.ciube.glass.cedar'
     compileSdk 21
 
     defaultConfig {
-        applicationId 'com.ciube.glass.launcher'
+        applicationId 'com.ciube.glass.cedar'
         minSdk 19
         targetSdk 19
         versionCode 1

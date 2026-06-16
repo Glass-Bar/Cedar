@@ -1,4 +1,4 @@
-# glAss launcher
+# Cedar
 
 A Glass Glassware to launch apps
 
