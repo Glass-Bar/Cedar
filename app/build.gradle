@@ -14,22 +14,32 @@ android {
         versionName '1.0'
     }
 
+    def localPropsFile = file('../local.properties')
     def props = new Properties()
-    file('../local.properties').withInputStream { props.load(it) }
+    if (localPropsFile.exists()) {
+        localPropsFile.withInputStream { props.load(it) }
+    }
 
     signingConfigs {
-        release {
-            storeFile     file(props['KEYSTORE_PATH'])
-            storePassword props['KEYSTORE_PASS']
-            keyAlias      props['KEY_ALIAS']
-            keyPassword   props['KEY_PASS']
+        if (localPropsFile.exists()) {
+            release {
+                storeFile     file(props['KEYSTORE_PATH'])
+                storePassword props['KEYSTORE_PASS']
+                keyAlias      props['KEY_ALIAS']
+                keyPassword   props['KEY_PASS']
+            }
         }
     }
 
     buildTypes {
+        debug {
+            // no signing config needed, uses default debug keystore
+        }
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release        // ← wire it in
+            if (localPropsFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 
